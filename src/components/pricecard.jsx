@@ -1,10 +1,6 @@
 const Feature = (Props) => {
-  return (
-    <p className="card-text">
-      {Props.symbol}
-      {Props.feature}
-    </p>
-  );
+  let property = Props.feature[0] === "✖" ? "text-muted" : "card-text";
+  return <p className={property}>{Props.feature}</p>;
 };
 
 const Card = (Props) => {

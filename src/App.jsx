@@ -46,9 +46,8 @@ const App = () => {
       },
     ],
   };
-
   return (
-    <div className="container bg-primary">
+    <div className="container bg-primary mt-5">
       <div className="row">
         {data.cards.map((val, index) => {
           return (
