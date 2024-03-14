@@ -9,7 +9,7 @@ const Feature = (Props) => {
 
 const Card = (Props) => {
   return (
-    <div style={{ backgroundColor: "blue" }}>
+    <div>
       <div className="card  mb-3 mt-3 mx-3" style={{ maxWidth: "18rem" }}>
         <p className="text-center text-muted mt-4">{Props.data.type}</p>
         <div className="card-header ">

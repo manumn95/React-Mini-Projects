@@ -48,10 +48,16 @@ const App = () => {
   };
 
   return (
-    <div className="d-flex justify-content-center align-item-center mt-5">
-      {data.cards.map((val, index) => {
-        return <Card data={val} key={index} features={val.features} />;
-      })}
+    <div className="container bg-primary">
+      <div className="row">
+        {data.cards.map((val, index) => {
+          return (
+            <div className="col" key={index}>
+              <Card data={val} key={index} features={val.features} />
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };
