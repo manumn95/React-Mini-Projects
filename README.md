@@ -19,5 +19,8 @@
 - When an item is removed from the cart, the cart quantity number should be decreased.
 - The "Remove from Cart" button should be changed back to the "Add to Cart" button once the item is removed from the cart.
 
+
+## Netlify:'https://react-shopping-app-mini-project.netlify.app'
+
 ## Output
 ![alt text](image.png)
