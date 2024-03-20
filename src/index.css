@@ -1,1 +1,21 @@
+body {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif !important;
 
+  background: rgb(131, 58, 180);
+  background: linear-gradient(
+    90deg,
+    rgba(131, 58, 180, 1) 0%,
+    rgba(253, 29, 29, 0.44131649241727944) 58%,
+    rgba(252, 176, 69, 1) 100%
+  );
+}
+
+@media (max-width: 550px) {
+  .card-container {
+    display: flex;
+    justify-content: center;
+  }
+  .filterpara {
+    display: none;
+  }
+}
