@@ -1,4 +1,15 @@
-const Filter = () => {
+import { useEffect, useState } from "react";
+
+const Filter = (Props) => {
+  const [filter, setfilter] = useState("All");
+  function handleChange(event) {
+    const { value } = event.target;
+    setfilter(value);
+  }
+  useEffect(() => {
+    Props.filterval(filter);
+  }, [filter]);
+
   return (
     <div>
       <div className="container mt-5 ">
@@ -14,10 +25,11 @@ const Filter = () => {
                   <select
                     className="form-select bg-danger"
                     aria-label="Todo status options"
+                    onChange={handleChange}
                   >
-                    <option selected>All</option>
-                    <option value="Completed">Completed</option>
-                    <option value="Notcompleted">Not Completed</option>
+                    <option value="All">All</option>
+                    <option value="completed">Completed</option>
+                    <option value="Not completed">Not Completed</option>
                   </select>
                 </div>
               </div>

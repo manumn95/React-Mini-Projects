@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Filter from "./Filter";
+import Cards from "./Cards";
 
-const Forms = (Props) => {
+const Forms = () => {
+  const [id, setid] = useState(-1);
   const [notes, setnotes] = useState({
     title: "",
     description: "",
+    status: "Not completed",
   });
   function handleChange(event) {
     const { name, value } = event.target;
@@ -15,14 +19,43 @@ const Forms = (Props) => {
     });
   }
 
+  const [todo, settodo] = useState([]);
+  const [filtertodo, setfiltertodo] = useState([]);
   function addNote(event) {
-    Props.onAdd(notes);
+    event.preventDefault();
+    if (id === -1) {
+      settodo([...todo, notes]);
+    } else {
+      todo[id] = notes;
+      settodo([...todo]);
+      setid(-1);
+    }
     setnotes({
       title: "",
       description: "",
+      status: "Not completed",
     });
-    event.preventDefault();
-    console.log(event.target);
+  }
+
+  function filterchange(filtervalue) {
+    if (filtervalue === "completed") {
+      setfiltertodo(todo.filter((item) => item.status === "completed"));
+    } else if (filtervalue === "Not completed") {
+      setfiltertodo(todo.filter((item) => item.status === "Not completed"));
+    } else {
+      setfiltertodo([...todo]);
+    }
+  }
+  useEffect(() => {
+    setfiltertodo(todo);
+  }, [todo]);
+
+  function editHandler(editId) {
+    setnotes(todo[editId]);
+    setid(editId);
+  }
+  function onDelete(id) {
+    settodo(todo.filter((task, index) => index !== id));
   }
 
   return (
@@ -65,6 +98,26 @@ const Forms = (Props) => {
           </div>
         </div>
       </form>
+      <Filter filterval={filterchange}></Filter>
+      <div className="conatiner mx-5">
+        <div className="row">
+          {filtertodo.map((notes, index) => {
+            return (
+              <div className="col-md-4" key={index}>
+                <Cards
+                  value={notes}
+                  id={index}
+                  key={index}
+                  title={notes.title}
+                  desc={notes.description}
+                  onDelete={onDelete}
+                  editHandler={editHandler}
+                ></Cards>
+              </div>
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 };
