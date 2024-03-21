@@ -2,38 +2,67 @@ import { Link, Outlet } from "react-router-dom";
 const Home = () => {
   return (
     <div>
-      <nav className="navbar bg-success">
-        <ul className="navbar-menu d-flex justify-content-center align-item-center gap-5 nav-ul fs-2 ">
-          <Link to={"/"} style={{ color: "white ", textDecoration: "none" }}>
-            All
-          </Link>
-          <Link
-            to={"/fullstack"}
-            style={{ color: "white ", textDecoration: "none" }}
-          >
-            Fullstack
-          </Link>
-          <Link
-            to={"/datascience"}
-            style={{ color: "white ", textDecoration: "none" }}
-          >
-            Datascience
-          </Link>
-          <Link
-            to={"/cybersecurity"}
-            style={{ color: "white ", textDecoration: "none" }}
-          >
-            Cybersecurity
-          </Link>
-          <Link
-            to={"/Careers"}
-            style={{ color: "white ", textDecoration: "none" }}
-          >
-            Careers
-          </Link>
-        </ul>
-      </nav>
-     
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col-lg-12">
+            <nav className="navbar navbar-expand-lg mb-5 text-size-3 ">
+              <div
+                className="container-fluid d-flex align-item-center justify-content-between g-5 bg-success"
+                style={{
+                  textAlign: "center",
+                  backgroundColor: "rgb(255,255,255",
+                  borderBottom: "1px solid lightgrey",
+                }}
+              >
+                <hr></hr>
+                <ul className="navbar-nav mx-auto d-flex gap-5">
+                  <li className="nav-item">
+                    <Link
+                      className=" text-dark fs-5 text-decoration-none style"
+                      to="/"
+                    >
+                      All
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link
+                      className=" text-dark fs-5 text-decoration-none style"
+                      to="/fullstack"
+                    >
+                      Fullstack
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link
+                      className=" text-dark fs-5 text-decoration-none style"
+                      to="/datascience"
+                    >
+                      DataScience
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link
+                      className=" text-dark fs-5 text-decoration-none style"
+                      to="/cybersecurity"
+                    >
+                      Cybersecurity
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link
+                      className=" text-dark fs-5 text-decoration-none style"
+                      to="/careers"
+                    >
+                      Careers
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+
       <Outlet></Outlet>
     </div>
   );
