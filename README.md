@@ -16,5 +16,7 @@
 - HTML
 - Bootstrap
 
+## Netlify-'https://todo-mini-react-project.netlify.app'
+
 ## Output
 ![alt text](image.png)
