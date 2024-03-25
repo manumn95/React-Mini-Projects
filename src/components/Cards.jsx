@@ -1,29 +1,4 @@
-import { useState } from "react";
-
 const Cards = (Props) => {
-  //checking the status
-  const [status, setstatus] = useState("Not completed");
-  function handleChange(event) {
-    const { value } = event.target;
-    setstatus(value);
-  }
-
-  //Text color of the status
-  let completed =
-    status === "completed"
-      ? "form-select  text-bg-success"
-      : "form-select  text-bg-danger";
-
-  //Delete Operation
-  function handleDelete() {
-    Props.onDelete(Props.id);
-  }
-
-  //Edit Operation
-  function handleEdit() {
-    Props.editHandler(Props.id);
-  }
-
   return (
     <div>
       <div className="container card-container mt-3">
@@ -33,27 +8,59 @@ const Cards = (Props) => {
         >
           <div className="card-body ">
             <p>
-              Name:<span className="text-white">{Props.title} </span>
+              Name:<span className="text-white">{Props.todo.taskName} </span>
             </p>
             <p>
-              Description:<span className="text-white">{Props.desc} </span>
+              Description:
+              <span className="text-white">{Props.todo.description} </span>
             </p>
             <div className="d-flex gap-3 align-item-center justify-content-center">
               <p>Status:</p>
               <select
-                className={completed}
-                aria-label="Todo status options"
-                onChange={handleChange}
+                className={
+                  Props.todo.status === "Completed"
+                    ? "bg-success text-white"
+                    : "bg-danger text-white"
+                }
+                value={Props.todo.status}
+                name="status"
+                onChange={(e) =>
+                  Props.updateStatus(Props.todo.id, e.target.value)
+                }
               >
-                <option value="Not completed">Not Completed</option>
-                <option value="completed">Completed</option>
+                <option
+                  value="Completed"
+                  className={
+                    Props.todo.status === "Completed" ? "bg-success" : ""
+                  }
+                >
+                  Completed
+                </option>
+                <option
+                  value="Not Completed"
+                  className={
+                    Props.todo.status !== "Completed"
+                      ? "bg-danger text-white"
+                      : ""
+                  }
+                >
+                  Not Completed
+                </option>
               </select>
             </div>
             <div className="mt-5 d-flex justify-content-end gap-3">
-              <button className="btn btn-success" onClick={handleEdit}>
+              <button
+                className="btn btn-success"
+                onClick={() => Props.editTodo(Props.todo.id)}
+                type="button"
+              >
                 Edit
               </button>
-              <button className="btn btn-danger" onClick={handleDelete}>
+              <button
+                className="btn btn-danger"
+                onClick={() => Props.deleteTodo(Props.todo.id)}
+                type="button"
+              >
                 Delete
               </button>
             </div>
