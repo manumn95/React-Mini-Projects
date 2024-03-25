@@ -3,7 +3,7 @@ const Cards = (Props) => {
     <div>
       <div className="container card-container mt-3">
         <div
-          className="card card-div bg-opacity-50 bg-warning text-bg-light"
+          className="card card-div bg-opacity-50 bg-warning text-bg-light mb-2"
           style={{ minWidth: "100%", maxWidth: "100%" }}
         >
           <div className="card-body ">
