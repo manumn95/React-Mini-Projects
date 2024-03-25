@@ -4,7 +4,7 @@ const Cards = (Props) => {
       <div className="container card-container mt-3">
         <div
           className="card card-div bg-opacity-50 bg-warning text-bg-light"
-          style={{ maxWidth: "30rem", maxHeight: "18rem" }}
+          style={{ minWidth: "100%" }}
         >
           <div className="card-body ">
             <p>
