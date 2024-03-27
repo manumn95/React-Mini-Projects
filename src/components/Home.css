@@ -1,0 +1,36 @@
+.img-card {
+  height: 250px !important;
+  width: 100% !important;
+  object-fit: cover;
+}
+
+.card-style {
+  box-shadow: 0 0 20px grey;
+}
+.header-gradient {
+  background: #00b09b !important ; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #96c93d,
+    #00b09b
+  ) !important ; /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #96c93d,
+    #00b09b
+  ) !important ; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.images {
+  box-shadow: 0 0 20px grey;
+  min-width: 200px;
+}
+
+@media (max-width: 600px) {
+  .card-style {
+    margin: 0 auto;
+  }
+  .images {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
